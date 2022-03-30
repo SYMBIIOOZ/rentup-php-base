@@ -20,9 +20,29 @@ Executer le site :
 
 6 – Formulaire de création / modification de propriétés
 
+7 - Page avec la liste de toutes les propriétés (et le vendeur associé)
+
+
+Une propriété a 3 status possibles : A louer, A vendre, Vendue, Louée
+On affiche sur la page d'accueil uniquement les 3 biens les plus récents
+On affiche uniquement les bien à louer ou à vendre sur la page d'accueil en excluant les propriétés vendues ou louées.
+
+
 ## Bonus
 
-7 - La création / modification de propriétés doit être réservée aux utilisateurs connectés (donc ajouter une page de connexion et table utilisateurs)
+8 - La création / modification de propriétés doit être réservée aux utilisateurs connectés (donc ajouter une page de connexion et table utilisateurs)
 
-8 - Créer un formulaire de création de vendeurs
+9 - Créer un formulaire de création de vendeurs
+
+
+## Tips :
+Le texte peut être généré avec https://fr.lipsum.com/
+
+Les images peuvent être générées avec https://picsum.photos/
+
+## MLD tu projet :
+
+![MLD](mld.png)
+
+# Date limite de rendu : 29 avril 2022 à 23h59
 
