@@ -1,74 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr-FR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RentUp - Home</title>
-</head>
-
-<body>
-    <!-- https://themezhub.net/rentup-live/rentup/home-3.html -->
-
-    <header id="main-header">
-        <div class="container">
-            <div class="container-header">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="RentUp" class="logo">
-                </a>
-                <div class="container-header-right">
-                    <nav class="main-navigation">
-                        <ul>
-                            <li>
-                                <a href="index.html">
-                                    Accueil
-                                </a>
-                            </li>
-                            <li class="sub-menu">
-                                <a href="properties.html">
-                                    Nos Propriétés
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="#">Maisons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Appartements</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Villa</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="contact.html">
-                                    Nous Contacter
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav class="user-navigation">
-                        <ul>
-                            <li class="number btn btn-primary">
-                                2
-                            </li>
-                            <li>
-                                My list
-                            </li>
-                            <li>
-                                <a href="login.html" class="btn btn-primary">
-                                    <i class="fa fa-sign-in" aria-hidden="true"></i>
-                                    Se connecter
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
+<?php include './includes/header.php'; ?>
     <main>
 
         <section class="section-home">
@@ -91,37 +21,23 @@
                 <div class="property-type-list">
                     <article class="card">
                         <div class="icon">
-                            <i class="fa fa-user"></i>
+                            <i class="fa fa-home"></i>
                         </div>
                         <h3>Maison</h3>
                         <p>122 propriétés</p>
                     </article>
                     <article class="card">
                         <div class="icon">
-                            <i class="fa fa-home"></i>
+                            <i class="fa fa-building"></i>
                         </div>
                         <h3>Appartement</h3>
                         <p>82 propriétés</p>
                     </article>
                     <article class="card">
                         <div class="icon">
-                            <i class="fa fa-home"></i>
+                            <i class="fa fa-briefcase"></i>
                         </div>
-                        <h3>Appartement</h3>
-                        <p>82 propriétés</p>
-                    </article>
-                    <article class="card">
-                        <div class="icon">
-                            <i class="fa fa-home"></i>
-                        </div>
-                        <h3>Appartement</h3>
-                        <p>82 propriétés</p>
-                    </article>
-                    <article class="card">
-                        <div class="icon">
-                            <i class="fa fa-home"></i>
-                        </div>
-                        <h3>Appartement</h3>
+                        <h3>Bureau</h3>
                         <p>82 propriétés</p>
                     </article>
                 </div>
@@ -214,31 +130,7 @@
                             <div>Apartment</div>
                         </footer>
                     </article>
-                    <article class="card">
-                        <div class="card-img-container">
-                            <img src="./images/p-4.png" alt="Red Carpet Real Estate">
-                        </div>
-                        <div class="card-content">
-                            <header class="card-content-header">
-                                <div class="badge badge-warning">For Rent</div>
-                                <i class="fa fa-heart-o"></i>
-                            </header>
-                            <h3>Red Carpet Real Estate</h3>
-                            <p>
-                                <i class="fa fa-map-marker"></i>
-                                210 Zirak Road, Canada
-                            </p>
-                        </div>
-                        <footer class="card-footer">
-                            <div>
-                                <div class="btn btn-primary">
-                                    $3,700
-                                </div>
-                                <span>/sqft</span>
-                            </div>
-                            <div>Apartment</div>
-                        </footer>
-                    </article>
+
                 </div>
 
             </div>
@@ -499,110 +391,4 @@
 
     </main>
 
-    <footer id="main-footer" class="section section-bg-dark-grey">
-        <div class="container">
-            <div class="container-footer">
-                <section class="container-footer-left">
-                    <a href="index.html">
-                        <img src="images/logo-light.png" alt="RentUp" class="logo">
-                    </a>
-                    <h2>Do you need help with anything</h2>
-                    <p>Receive updates, hot deals, tutorials, discounts sent straignt in your inbox every month</p>
-                    <form>
-                        <input type="email" class="email" placeholder="Email Address"><input type="submit"
-                            class="btn btn-primary" value="Subscribe">
-                    </form>
-                </section>
-
-                <section class="container-footer-right">
-                    <div class="footer-menu">
-                        <h3>LAYOUTS</h3>
-                        <ul>
-                            <li>
-                                <a href="#">Home Page</a>
-                            </li>
-                            <li>
-                                <a href="#">About Page</a>
-                            </li>
-                            <li>
-                                <a href="#">Service Page</a>
-                            </li>
-                            <li>
-                                <a href="#">Property Page</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact Page</a>
-                            </li>
-                            <li>
-                                <a href="#">Single Bloc</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-menu">
-                        <h3>ALL SECTIONS</h3>
-                        <ul>
-                            <li>
-                                <a href="#">Headers</a>
-                                <span class="btn btn-primary">New</span>
-                            </li>
-                            <li>
-                                <a href="#">Features</a>
-                            </li>
-                            <li>
-                                <a href="#">Attractive</a>
-                                <span class="btn btn-primary">New</span>
-                            </li>
-                            <li>
-                                <a href="#">Testimonials</a>
-                            </li>
-                            <li>
-                                <a href="#">Videos</a>
-                            </li>
-                            <li>
-                                <a href="#">Footers</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-menu">
-                        <h3>COMPANY</h3>
-                        <ul>
-                            <li>
-                                <a href="#">About</a>
-                            </li>
-                            <li>
-                                <a href="#">Blog</a>
-                            </li>
-                            <li>
-                                <a href="#">Pricing</a>
-                            </li>
-                            <li>
-                                <a href="#">Affiliate</a>
-                            </li>
-                            <li>
-                                <a href="#">Login</a>
-                            </li>
-                            <li>
-                                <a href="#">Changelog</a>
-                                <span class="btn btn-quaternary">Update</span>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </footer>
-
-    <nav class="section section-bg-dark-grey footer-bottom">
-        <span>© 2022 RentUP. Designd By DWWM - Nicolas M.</span>
-    </nav>
-
-    <aside class="back-to-top">
-        <a class="btn back-to-top" href="#">
-            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-        </a>
-    </aside>
-
-    <script src="dist/app.js"></script>
-</body>
-
-</html>
+ <?php include './includes/footer.php'; ?>
