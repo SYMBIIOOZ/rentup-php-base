@@ -2,12 +2,15 @@
 @use '../abstracts/mixins';
 
 #main-header {
-    position: fixed;
+    position: absolute;
+    top: 0;
     width: 100%;
+
     padding: 1rem 0;
     z-index: 1;
     background-color: white;
     box-shadow: 0 5px 30px rgba(0, 22, 84, 0.1);
+
 
     .logo {
         max-width: 200px;

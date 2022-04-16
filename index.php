@@ -1,4 +1,11 @@
-<?php include './includes/header.php'; ?>
+<?php
+
+include './includes/header.php';
+include './includes/functions.php';
+
+
+?>
+
     <main>
 
         <section class="section-home">
@@ -19,27 +26,15 @@
                 </header>
 
                 <div class="property-type-list">
-                    <article class="card">
-                        <div class="icon">
-                            <i class="fa fa-home"></i>
-                        </div>
-                        <h3>Maison</h3>
-                        <p>122 propriétés</p>
-                    </article>
-                    <article class="card">
-                        <div class="icon">
-                            <i class="fa fa-building"></i>
-                        </div>
-                        <h3>Appartement</h3>
-                        <p>82 propriétés</p>
-                    </article>
-                    <article class="card">
-                        <div class="icon">
-                            <i class="fa fa-briefcase"></i>
-                        </div>
-                        <h3>Bureau</h3>
-                        <p>82 propriétés</p>
-                    </article>
+                    <?php foreach(getPropertyTypes() as $propertyType) : ?>
+                        <article class="card">
+                            <div class="icon">
+                                <i class="<?= $propertyType['picto'] ?>"></i>
+                            </div>
+                            <h3><?= $propertyType['name'] ?></h3>
+                            <p><?= getPropertiesNumber() ?> Properties</p>
+                        </article>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </section>
@@ -55,82 +50,43 @@
                 </header>
 
                 <div class="property-list">
-                    <article class="card">
-                        <div class="card-img-container">
-                            <img src="./images/p-1.png" alt="Red Carpet Real Estate">
-                        </div>
-                        <div class="card-content">
-                            <header class="card-content-header">
-                                <div class="badge badge-warning">For Rent</div>
-                                <i class="fa fa-heart-o"></i>
-                            </header>
-                            <h3>Red Carpet Real Estate</h3>
-                            <p>
-                                <i class="fa fa-map-marker"></i>
-                                210 Zirak Road, Canada
-                            </p>
-                        </div>
-                        <footer class="card-footer">
-                            <div>
-                                <div class="btn btn-primary">
-                                    $3,700
+                    <?php foreach(getProperties() as $index => $property) : ?>
+                        <?php if($index < 3) : ?>
+                            <article class="card">
+                                <div class="card-img-container">
+                                    <img src="<?= $property['image'] ?>" alt="<?= $property['name'] ?>">
                                 </div>
-                                <span>/sqft</span>
-                            </div>
-                            <div>Apartment</div>
-                        </footer>
-                    </article>
-                    <article class="card">
-                        <div class="card-img-container">
-                            <img src="./images/test.jpg" alt="Red Carpet Real Estate">
-                        </div>
-                        <div class="card-content">
-                            <header class="card-content-header">
-                                <div class="badge badge-success">For Sale</div>
-                                <i class="fa fa-heart-o"></i>
-                            </header>
-                            <h3>Red Carpet Real Estate</h3>
-                            <p>
-                                <i class="fa fa-map-marker"></i>
-                                210 Zirak Road, Canada
-                            </p>
-                        </div>
-                        <footer class="card-footer">
-                            <div>
-                                <div class="btn btn-primary">
-                                    $3,700
-                                </div>
-                                <span>/sqft</span>
-                            </div>
-                            <div>Apartment</div>
-                        </footer>
-                    </article>
-                    <article class="card">
-                        <div class="card-img-container">
-                            <img src="./images/p-3.png" alt="Red Carpet Real Estate">
-                        </div>
-                        <div class="card-content">
-                            <header class="card-content-header">
-                                <div class="badge badge-warning">For Rent</div>
-                                <i class="fa fa-heart-o"></i>
-                            </header>
-                            <h3>Red Carpet Real Estate</h3>
-                            <p>
-                                <i class="fa fa-map-marker"></i>
-                                210 Zirak Road, Canada
-                            </p>
-                        </div>
-                        <footer class="card-footer">
-                            <div>
-                                <div class="btn btn-primary">
-                                    $3,700
-                                </div>
-                                <span>/sqft</span>
-                            </div>
-                            <div>Apartment</div>
-                        </footer>
-                    </article>
+                                <div class="card-content">
+                                    <header class="card-content-header">
+                                            <div class="<?php echo ($property['status'] === 'For Sale') ? 'badge badge-warning' : 'badge badge-success'?>">
+                                                <?= $property['status'] ?>
+                                            </div>
+                                            <i class="fa fa-heart-o"></i>
+                                    </header>
 
+                                    <h3><?= $property['name'] ?></h3>
+                                    <p>
+                                        <i class="fa fa-map-marker"></i>
+                                        <?= $property['street'] ?>
+                                    </p>
+                                    <p> <?= $property['city'] . ' ' . $property['state']?></p>
+                                    <p><?= $property['country'] ?></p>
+                                </div>
+                                <footer class="card-footer">
+                                    <div>
+                                        <button class="btn btn-primary">
+                                            <?= $property['price']  . ' €' ?>
+                                        </button>
+
+                                    </div>
+                                    <p><?=$property['propname']?></p>
+                                    <div></div>
+
+
+                                </footer>
+                            </article>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
 
             </div>
@@ -212,165 +168,60 @@
                         officia quia atque nam.</p>
                 </header>
                 <div class="agents-list">
-                    <article class="card">
-                        <div class="card-img-container">
-                            <div class="badge">
-                                72 listings
-                            </div>
-                            <div class="agent-img">
-                                <span>
-                                    <img class="check" src="./images/verified.svg" alt="">
-                                </span>
-                                <img class="agent-photo" src="./images/team-2.jpg" alt="portrait-agent-2">
-                            </div>
-                            <div class="agent-localisation">
-                                <i class="fa fa-map-marker"></i> 2272 Briarwood Drive
-                            </div>
-                            <div class="agent-name">
-                                <h3>Anne K. Young</h3>
-                            </div>
-                            <div class="agent-contact">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i id="facebook" class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="linkedin" class="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="instagram" class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="twitter" class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <footer class="card-footer">
-                                <div class="btn btn-primary">
-                                    <i class="fa fa-envelope-o"></i>
-                                    Message
+                    <?php foreach (getAgentsAndPropertiesNb() as $agent) : ?>
+                        <article class="card">
+                            <div class="card-img-container">
+                                <div class="badge">
+                                    <?= $agent['COUNT(id_property)']?>
                                 </div>
-                                <div class="btn btn-secondary">
-                                    <i class="fa fa-phone"></i>
+                                <div class="agent-img">
+                                    <span>
+                                        <img class="check" src="./images/verified.svg" alt="">
+                                    </span>
+                                    <img class="agent-photo" src="<?= $agent['profile_picture']?>" alt="portrait-agent-2">
                                 </div>
-                            </footer>
-                        </div>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-img-container">
-                            <div class="badge">
-                                50 listings
-                            </div>
-                            <div class="agent-img">
-                                <span>
-                                    <img class="check" src="./images/verified.svg" alt="">
-                                </span>
-                                <img class="agent-photo" src="./images/team-1.jpg" alt="portrait-agent-2">
-                            </div>
-                            <div class="agent-localisation">
-                                <i class="fa fa-map-marker"></i> Montreal Canada
-                            </div>
-                            <div class="agent-name">
-                                <h3>Harijeet M. Siller</h3>
-                            </div>
-                            <div class="agent-contact">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i id="facebook" class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="linkedin" class="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="instagram" class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="twitter" class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <footer class="card-footer">
-                                <div class="btn btn-primary">
-                                    <i class="fa fa-envelope-o"></i>
-                                    Message
+                                <div class="agent-localisation">
+                                    <i class="fa fa-map-marker"></i> <?= $agent['location']?>
                                 </div>
-                                <div class="btn btn-secondary">
-                                    <i class="fa fa-phone"></i>
+                                <div class="agent-name">
+                                    <h3><?= $agent['first_name'] . $agent['last_name'] ?></h3>
                                 </div>
-                            </footer>
-                        </div>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-img-container">
-                            <div class="badge">
-                                47 listings
-                            </div>
-                            <div class="agent-img">
-                                <span>
-                                    <img class="check" src="./images/verified.svg" alt="">
-                                </span>
-                                <img class="agent-photo" src="./images/team-4.jpg" alt="portrait-agent-2">
-                            </div>
-                            <div class="agent-localisation">
-                                <i class="fa fa-map-marker"></i> Liverpool Canada
-                            </div>
-                            <div class="agent-name">
-                                <h3>Sargam S. Singh</h3>
-                            </div>
-                            <div class="agent-contact">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i id="facebook" class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="linkedin" class="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="instagram" class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i id="twitter" class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <footer class="card-footer">
-                                <div class="btn btn-primary">
-                                    <i class="fa fa-envelope-o"></i>
-                                    Message
+                                <div class="agent-contact">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <i id="facebook" class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i id="linkedin" class="fa fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i id="instagram" class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i id="twitter" class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="btn btn-secondary">
-                                    <i class="fa fa-phone"></i>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
+                                <footer class="card-footer">
+                                    <div class="btn btn-primary">
+                                        <i class="fa fa-envelope-o"></i>
+                                        Message
+                                    </div>
+                                    <div class="btn btn-secondary">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                </footer>
+                            </div>
+                        </article>
+                    <?php endforeach;?>
                 </div>
             </div>
         </section>
