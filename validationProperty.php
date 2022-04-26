@@ -1,35 +1,27 @@
 <?php
 include_once './includes/functions.php';
 
+if (empty($_POST['check'])) {
 
 
-if (!isset($_POST)) {
-    checKValidationForm($_POST);
-    foreach ($errors as $error) {
-        echo $error . '<br>';
-    }
-
-
-}else{
-    $name = $_FILES['image']['name'];
-    $tmp_name =  $_FILES['image']['tmp_name'];
-    $location = "uploads/";
-    $new_name = $location.time()."-".rand(1000, 9999)."-".$name;
-    if (move_uploaded_file($tmp_name, $new_name)){
-        echo "uploaded";
-
-    }
-    else{
-        sleep(rand(1,5));
-        $new_name = $location.time()."-".rand(1000, 9999)."-".$name;
-        if (move_uploaded_file($tmp_name, $new_name)){
-            echo "uploaded";
+    var_dump($_POST);
+    if (!isset($_POST)) {
+        checKValidationForm($_POST);
+        foreach ($errors as $error) {
+            echo $error . '<br>';
         }
-        else{
-            echo"failed, better luck next time";
-        }
-    }
 
-    createProperty($_POST, $new_name);
+
+    } else {
+        $new_name = getNew_name();
+
+
+        createProperty($new_name);
+        header('Location: ./displayAllProperties.php');
+    }
+}else {
+    $id = $_POST['check'];
+    $new_name = getNew_name();
+    updateProperty($new_name, $id);
+    header('Location: ./displayAllProperties.php');
 }
-

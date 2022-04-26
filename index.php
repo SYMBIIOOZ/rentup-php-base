@@ -50,7 +50,7 @@ include './includes/functions.php';
                 </header>
 
                 <div class="property-list">
-                    <?php foreach(getProperties() as $index => $property) : ?>
+                    <?php foreach(getPropertiesAndSeller() as $index => $property) : ?>
                         <?php if($index < 3) : ?>
                             <article class="card">
                                 <div class="card-img-container">

@@ -26,27 +26,12 @@
                                     Accueil
                                 </a>
                             </li>
-                            <li class="sub-menu">
-                                <a href="properties.html">
+                            <li>
+                                <a href="displayAllProperties.php">
                                     Nos Propriétés
                                 </a>
-                                <ul>
-                                    <li>
-                                        <a href="#">Maisons</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Appartements</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Villa</a>
-                                    </li>
-                                </ul>
                             </li>
-                            <li>
-                                <a href="contact.html">
-                                    Nous Contacter
-                                </a>
-                            </li>
+
                             <li>
                                 <a href="createNewProperty.php">
                                     Ajouter une propriété
