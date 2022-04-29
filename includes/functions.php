@@ -143,7 +143,8 @@ function getPropertyByID($id)
 function updateProperty($image,$id)
 {
     $db = connectDatabase();
-    $query = 'UPDATE property SET name = :name, street = :street, city = :city, postal_code = :postal_code, state = :state, country = :country, price = :price, status = :status, image = :image, property_type_id = :property_type_id, seller_id = :seller_id WHERE id_property = :id';
+    $query = 'UPDATE property SET name = :name, street = :street, city = :city, postal_code = :postal_code, state = :state, country = :country, price = :price, status = :status, image = :image, property_type_id = :property_type_id, seller_id = :seller_id 
+    WHERE id_property = :id';
     $statement = $db->prepare($query);
     return $statement->execute(
         [
